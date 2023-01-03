@@ -88,7 +88,7 @@ func main() {
 		micro.Server(server.NewServer(func(options *server.Options) {
 			options.Advertise = "192.168.230.135:8082"
 		})),
-		micro.Name("go.micro.service.podApi"),
+		micro.Name("go.micro.api.podApi"),
 		micro.Version("latest"),
 		micro.Address(":8082"),
 		// 添加consul
