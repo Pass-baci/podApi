@@ -54,7 +54,7 @@ func (p *PodApi) AddPod(ctx context.Context, req *podApi.Request, rsp *podApi.Re
 
 	addPodInfo := &pod.PodInfo{}
 
-	podPortPair, ok := req.Get["pod_port"]
+	podPortPair, ok := req.Post["pod_port"]
 	if ok {
 		portSlice := make([]*pod.PodPort, 0)
 		for _, v := range podPortPair.Values {
