@@ -51,6 +51,7 @@ func (p *PodApi) FindPodById(ctx context.Context, req *podApi.Request, rsp *podA
 
 func (p *PodApi) AddPod(ctx context.Context, req *podApi.Request, rsp *podApi.Response) error {
 	common.Info("接收到 AddPod 的请求")
+	fmt.Printf("%+v", *req)
 
 	addPodInfo := &pod.PodInfo{}
 
