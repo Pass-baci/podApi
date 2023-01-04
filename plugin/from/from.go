@@ -2,6 +2,7 @@ package from
 
 import (
 	"errors"
+	"fmt"
 	"github.com/Pass-baci/common"
 	"github.com/Pass-baci/podApi/proto/podApi"
 	"reflect"
@@ -46,6 +47,7 @@ func FromToPodStruct(data map[string]*podApi.Pair, obj interface{}) {
 		}
 		//设置类型值
 		objValue.FieldByName(name).Set(val)
+		fmt.Println(val)
 	}
 }
 
