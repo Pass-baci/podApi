@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"github.com/Pass-baci/common"
 	"github.com/Pass-baci/pod/proto/pod"
 	"github.com/Pass-baci/podApi/plugin/from"
@@ -51,7 +50,6 @@ func (p *PodApi) FindPodById(ctx context.Context, req *podApi.Request, rsp *podA
 
 func (p *PodApi) AddPod(ctx context.Context, req *podApi.Request, rsp *podApi.Response) error {
 	common.Info("接收到 AddPod 的请求")
-	fmt.Printf("%+v", *req)
 
 	addPodInfo := &pod.PodInfo{}
 
@@ -71,8 +69,7 @@ func (p *PodApi) AddPod(ctx context.Context, req *podApi.Request, rsp *podApi.Re
 		}
 	}
 
-	from.FromToPodStruct(req.Get, addPodInfo)
-	fmt.Printf("%+v", *addPodInfo)
+	from.FromToPodStruct(req.Post, addPodInfo)
 	response, err := p.PodService.AddPod(ctx, addPodInfo)
 	if err != nil {
 		common.Errorf("AddPod 创建Pod失败, err: %s \n", err.Error())
