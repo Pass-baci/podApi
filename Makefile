@@ -15,7 +15,7 @@ docker-stop:
 	docker stop gopass-podApi
 
 .PHONY: docker-rm
-docker-rm:
+docker-rmi:
 	docker rm gopass-podApi
 
 .PHONY: docker-rmi
