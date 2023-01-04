@@ -24,4 +24,4 @@ docker-rmi:
 
 .PHONY: docker-run
 docker-run:
-	docker run -d --name gopass-pod-api -p 8082:8082 -p 9092:9092 -p 9192:9192 -v /home/go-pro/src/podApi/micro.log:/micro.log baciyou/pod-api
+	docker run -d --name gopass-pod-api -p 8082:8082 -p 9093:9093 -p 9193:9193 -v /home/go-pro/src/podApi/micro.log:/micro.log baciyou/pod-api

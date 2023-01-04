@@ -25,9 +25,9 @@ var (
 	consulHost       = "192.168.230.135"
 	consulPort int64 = 8500
 	// 熔断器
-	hystrixPort = 9092
+	hystrixPort = "9093"
 	// 监控端口
-	prometheusPort = 9192
+	prometheusPort = 9193
 )
 
 func main() {
@@ -70,7 +70,7 @@ func main() {
 	go func() {
 		// http://ip:port/turbine/turbine.stream
 		// 看板访问地址：http://192.168.230.135:9002/hystrix
-		if err = http.ListenAndServe(net.JoinHostPort("0.0.0.0", "9092"), hystrixStreamHandler); err != nil {
+		if err = http.ListenAndServe(net.JoinHostPort("0.0.0.0", hystrixPort), hystrixStreamHandler); err != nil {
 			common.Errorf("启动监听程序失败 err: %s \n", err.Error())
 		}
 	}()
