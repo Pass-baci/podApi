@@ -7,7 +7,7 @@ build:
 	CGO_ENABLED="0" GOOS=linux GOARCH=amd64 go build -o podApi *.go
 
 .PHONY: docker-build
-docker:
+docker-build:
 	docker build . -t baciyou/podApi:latest
 
 .PHONY: docker-stop
