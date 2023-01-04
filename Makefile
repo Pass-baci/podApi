@@ -15,11 +15,11 @@ docker-stop:
 	docker stop gopass-podApi
 
 .PHONY: docker-rm
-docker-rmi:
+docker-rm:
 	docker rm gopass-podApi
 
 .PHONY: docker-rmi
-docker-rm:
+docker-rmi:
 	docker image rm baciyou/podApi:latest
 
 .PHONY: docker-run
