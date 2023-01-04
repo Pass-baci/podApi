@@ -56,8 +56,10 @@ func (p *PodApi) AddPod(ctx context.Context, req *podApi.Request, rsp *podApi.Re
 
 	podPortPair, ok := req.Get["pod_port"]
 	if ok {
+		portSlice := make([]*pod.PodPort, 0)
 		for _, v := range podPortPair.Values {
-			portSlice := make([]*pod.PodPort, 0)
+			fmt.Println(ok)
+			fmt.Println(v)
 			i, err := strconv.ParseInt(v, 10, 32)
 			if err != nil {
 				common.Errorf("AddPod 创建Pod失败, err: %s \n", err.Error())
@@ -68,8 +70,8 @@ func (p *PodApi) AddPod(ctx context.Context, req *podApi.Request, rsp *podApi.Re
 				Protocol:      "TCP",
 			}
 			portSlice = append(portSlice, port)
-			addPodInfo.PodPort = portSlice
 		}
+		addPodInfo.PodPort = portSlice
 	}
 
 	from.FromToPodStruct(req.Post, addPodInfo)
