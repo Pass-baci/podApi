@@ -14,6 +14,7 @@ import (
 //根据结构体中name标签映射数据到结构体中并且转换类型
 func FromToPodStruct(data map[string]*podApi.Pair, obj interface{}) {
 	objValue := reflect.ValueOf(obj).Elem()
+	fmt.Println(data)
 	for i := 0; i < objValue.NumField(); i++ {
 		//获取sql对应的值
 		dataTag := strings.Replace(objValue.Type().Field(i).Tag.Get("json"), ",omitempty", "", -1)
