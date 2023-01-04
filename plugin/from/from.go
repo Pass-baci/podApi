@@ -16,7 +16,7 @@ func FromToPodStruct(data map[string]*podApi.Pair, obj interface{}) {
 	objValue := reflect.ValueOf(obj).Elem()
 	for i := 0; i < objValue.NumField(); i++ {
 		//获取sql对应的值
-		dataTag := strings.Replace(objValue.Type().Field(i).Tag.Get("json"), ",omitempty", "", -1)
+		dataTag := strings.Replace(objValue.Type().Field(i).Tag.Get("json"), "omitempty", "", -1)
 		dataSlice, ok := data[dataTag]
 		if !ok {
 			continue
